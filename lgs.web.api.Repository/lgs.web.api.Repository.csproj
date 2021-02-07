@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>..\lgs.web.api.Api\bin\Debug\</OutputPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>..\lgs.web.api\bin\Release\</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\lgs.web.api.Model\lgs.web.api.Model.csproj" />
+	</ItemGroup>
+
+</Project>

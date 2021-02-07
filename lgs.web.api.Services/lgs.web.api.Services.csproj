@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>..\lgs.web.api.Api\bin\Debug\</OutputPath>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>..\lgs.web.api\bin\Release\</OutputPath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="9.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\lgs.web.api.IServices\lgs.web.api.IServices.csproj" />
+		<ProjectReference Include="..\lgs.web.api.Repository\lgs.web.api.Repository.csproj" />
+	</ItemGroup>
+
+</Project>

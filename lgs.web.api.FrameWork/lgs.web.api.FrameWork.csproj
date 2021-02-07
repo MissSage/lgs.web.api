@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="lgs.web.api.FrameWork.Entity\lgs.web.api.FrameWork.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>lgs.web.api.FrameWork.cs</LastGenOutput>
+    </None>
+    <None Update="lgs.web.api.FrameWork.IRepository\lgs.web.api.FrameWork.IRepository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>lgs.web.api.FrameWork.IRepository.cs</LastGenOutput>
+    </None>
+    <None Update="lgs.web.api.FrameWork.IServices\lgs.web.api.FrameWork.IServices.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>lgs.web.api.FrameWork.IServices.cs</LastGenOutput>
+    </None>
+    <None Update="lgs.web.api.FrameWork.Repository\lgs.web.api.FrameWork.Repository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>lgs.web.api.FrameWork.Repository.cs</LastGenOutput>
+    </None>
+    <None Update="lgs.web.api.FrameWork.Services\lgs.web.api.FrameWork.Services.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>lgs.web.api.FrameWork.Services.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="lgs.web.api.FrameWork.IRepository\lgs.web.api.FrameWork.IRepository.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>lgs.web.api.FrameWork.IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Update="lgs.web.api.FrameWork.IServices\lgs.web.api.FrameWork.IServices.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>lgs.web.api.FrameWork.IServices.tt</DependentUpon>
+    </Compile>
+    <Compile Update="lgs.web.api.FrameWork.Repository\lgs.web.api.FrameWork.Repository.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>lgs.web.api.FrameWork.Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Update="lgs.web.api.FrameWork.Services\lgs.web.api.FrameWork.Services.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>lgs.web.api.FrameWork.Services.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
