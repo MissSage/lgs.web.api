@@ -35,7 +35,7 @@ namespace lgs.web.api.Tests
         {
             blogarticle blogarticle = new blogarticle();
 
-            Assert.True(blogarticle.bID >= 0);
+            Assert.True(blogarticle.Id >= 0);
         }
         [Fact]
         public async void GetBlogsTest()

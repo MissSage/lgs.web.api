@@ -40,7 +40,7 @@ namespace lgs.web.api.Tests
                 bUpdateTime = DateTime.Now,
                 btitle = "xuint test title",
                 bcontent = "xuint test content",
-                bsubmitter = "xuint： test repositoryBase add blog",
+                bsubmitter =1,
             };
 
             var BId = await baseRepository.Add(blogarticle);
