@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blog.Core.Model.ViewModels
+namespace lgs.web.api.Model.ViewModels
 {
     public class ImgViewModel
     {
