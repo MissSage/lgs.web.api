@@ -7,7 +7,7 @@ using lgs.web.api.AuthHelper;
 namespace lgs.web.api.Tests
 {
     public class LoginController_Should
-    {
+    { 
         LoginController loginController;
 
         private readonly ISysUserInfoServices _sysUserInfoServices;
