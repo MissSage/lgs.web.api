@@ -81,7 +81,7 @@ namespace lgs.web.api.Api.Controllers
             {
                 where = where.And(where3);
             }
-            var bloglist = await _blogarticleServices.QueryPage(where, page, intPageSize);
+            var bloglist = await _blogarticleServices.QueryPage(where, page, intPageSize, "bCreateTime desc");
             //return bloglist;
             //var res = await _blogarticleServices.GetBlogs(page, intPageSize, key, isPublic, tag, category);
             return new MessageModel<PageModel<blogarticle>>()
@@ -97,7 +97,7 @@ namespace lgs.web.api.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        [Authorize]
+        //[Authorize]
         //[Authorize(Policy = "Scope_BlogModule_Policy")]
         public async Task<MessageModel<BlogViewModels>> Get(int id = 0)
         {

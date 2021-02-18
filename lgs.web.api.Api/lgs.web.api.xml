@@ -579,6 +579,13 @@
             <param name="sysUserInfo"></param>
             <returns></returns>
         </member>
+        <member name="M:lgs.web.api.Controllers.UserController.Edit(lgs.web.api.Model.Models.sysUserInfo)">
+            <summary>
+            编辑用户
+            </summary>
+            <param name="sysUserInfo"></param>
+            <returns></returns>
+        </member>
         <member name="M:lgs.web.api.Controllers.UserController.Delete(System.Int32)">
             <summary>
             删除用户
