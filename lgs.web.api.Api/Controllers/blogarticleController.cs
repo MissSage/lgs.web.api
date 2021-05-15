@@ -3,17 +3,13 @@ using lgs.web.api.Common.HttpContextUser;
 using lgs.web.api.IServices;
 using lgs.web.api.Model;
 using lgs.web.api.Model.Models;
-using lgs.web.api.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Linq.Expressions;
 using System;
 using System.Threading.Tasks;
-using lgs.web.api.Common.Helper;
-using System.Linq;
 using AutoMapper;
-using System.Collections.Generic;
 
 namespace lgs.web.api.Api.Controllers
 {
@@ -61,29 +57,13 @@ namespace lgs.web.api.Api.Controllers
         [HttpGet]
         public async Task<MessageModel<PageModel<blogarticle>>> Get(int page = 1, int intPageSize = 50, string key = "",bool isPublic=true,bool isTop=false,string tag="",string category="")
         {
-            Expression<Func<blogarticle, bool>> where = a => a.IsDeleted == false && a.isPublic == isPublic&&a.isTop==isTop;
-            Expression<Func<blogarticle, bool>> where1 = a => a.btitle.Contains(key) || a.bcontent.Contains(key);
-            Expression<Func<blogarticle, bool>> where3 = a => a.bcategory == category;
-            if (!string.IsNullOrEmpty(tag) || !string.IsNullOrWhiteSpace(tag))
-            {
-                Expression<Func<blogarticle_tags, bool>> where2 = p => p.bTag == tag;
-                var tags = _blogarticle_TagsServices.Query(where2);
-                tags.Result.ForEach(t =>
-                {
-                    where = where.Or(p => p.Id == t.bBlogID);
-                });
+            Expression<Func<blogarticle, bool>> where = a => true;
+			if (!string.IsNullOrEmpty(key))
+			{
+                where = a => a.btitle.Contains(key) || a.digest.Contains(key) || a.bcontent.Contains(key);
+
             }
-            if (!string.IsNullOrEmpty(key) || !string.IsNullOrWhiteSpace(key))
-            {
-                where = where.And(where1);
-            }
-            if (!string.IsNullOrEmpty(category) || !string.IsNullOrWhiteSpace(category))
-            {
-                where = where.And(where3);
-            }
-            var bloglist = await _blogarticleServices.QueryPage(where, page, intPageSize);
-            //return bloglist;
-            //var res = await _blogarticleServices.GetBlogs(page, intPageSize, key, isPublic, tag, category);
+            var bloglist = await _blogarticleServices.QueryMuchTable(where,page, intPageSize,null);
             return new MessageModel<PageModel<blogarticle>>()
             {
                 msg = "获取成功",
@@ -99,41 +79,15 @@ namespace lgs.web.api.Api.Controllers
         [HttpGet("{id}")]
         [Authorize]
         //[Authorize(Policy = "Scope_BlogModule_Policy")]
-        public async Task<MessageModel<BlogViewModels>> Get(int id = 0)
+        public async Task<MessageModel<blogarticle>> Get(int id = 0)
         {
-            // 此处想获取上一条下一条数据，因此将全部数据list出来，有好的想法请提出
-            //var bloglist = await base.Query(a => a.IsDeleted==false, a => a.Id);
-            var blogarticle = (await _blogarticleServices.Query(a => a.Id == id)).FirstOrDefault();
 
-            BlogViewModels models = null;
 
-            if (blogarticle != null)
-            {
-                models = _mapper.Map<BlogViewModels>(blogarticle);
-                //要取下一篇和上一篇，以当前id开始，按id排序后top(2)，而不用取出所有记录
-                //这样在记录很多的时候也不会有多大影响
-                var nextBlogs = await _blogarticleServices.Query(a => a.Id >= id && a.IsDeleted == false, 2, "Id");
-                if (nextBlogs.Count == 2)
-                {
-                    models.next = nextBlogs[1].btitle;
-                    models.nextID = nextBlogs[1].Id;
-                }
-                var prevBlogs = await _blogarticleServices.Query(a => a.Id <= id && a.IsDeleted == false, 2, "Id desc");
-                if (prevBlogs.Count == 2)
-                {
-                    models.previous = prevBlogs[1].btitle;
-                    models.previousID = prevBlogs[1].Id;
-                }
-                models.tags = _blogarticle_TagsServices.Query(p => p.bBlogID == models.Id).Result.Select(p => p.bTag).ToList();
-                models.Author = await _sysUserInfoServices.QueryById(blogarticle.bsubmitter);
-                blogarticle.btraffic += 1;
-                await _blogarticleServices.Update(blogarticle, new List<string> { "btraffic" });
-            }
-            return new MessageModel<BlogViewModels>()
+            return new MessageModel<blogarticle>()
             {
                 msg = "获取成功",
                 success = true,
-                response = models
+                response = await _blogarticleServices.GetBlogDetails(id)
             };
         }
         [HttpPost]
@@ -190,14 +144,14 @@ namespace lgs.web.api.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<MessageModel<string>> Delete(int id = 0)
+          public async Task<MessageModel<string>> Delete(int id = 0)
         {
             var data = new MessageModel<string>();
             if (id > 0)
-            {
+              {
                 var detail = await _blogarticleServices.QueryById(id);
 
-                detail.IsDeleted = true;
+				detail.IsDeleted = true;
 
                 if (detail != null)
                 {

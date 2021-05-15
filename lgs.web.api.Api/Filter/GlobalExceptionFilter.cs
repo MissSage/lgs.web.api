@@ -5,17 +5,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using StackExchange.Profiling;
 using System;
 
 namespace lgs.web.api.Filter
 {
-    /// <summary>
-    /// 全局异常错误日志
-    /// </summary>
-    public class GlobalExceptionsFilter : IExceptionFilter
+	/// <summary>
+	/// 全局异常错误日志
+	/// </summary>
+	public class GlobalExceptionsFilter : IExceptionFilter
     {
         private readonly IWebHostEnvironment _env;
         private readonly IHubContext<ChatHub> _hubContext;

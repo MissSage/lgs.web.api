@@ -1,11 +1,10 @@
-using lgs.web.api.Services.BASE;
-using lgs.web.api.Model.Models;
-using lgs.web.api.IRepository;
-using lgs.web.api.IServices;
 using lgs.web.api.IRepository.Base;
+using lgs.web.api.IServices;
+using lgs.web.api.Model.Models;
+using lgs.web.api.Services.BASE;
 
 namespace lgs.web.api.Services
-{	
+{
 	/// <summary>
 	/// ModulePermissionServices
 	/// </summary>	

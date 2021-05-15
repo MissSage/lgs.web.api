@@ -1,7 +1,8 @@
 ﻿using lgs.web.api.IServices.BASE;
 using lgs.web.api.Model;
 using lgs.web.api.Model.Models;
-using lgs.web.api.Model.ViewModels;
+using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace lgs.web.api.IServices
@@ -11,7 +12,9 @@ namespace lgs.web.api.IServices
 	/// </summary>	
     public interface IblogarticleServices :IBaseServices<blogarticle>
 	{
-		Task<PageModel<blogarticle>> GetBlogs(int page = 1, int intPageSize = 50, string key = "",bool isPublic=true,bool isTop=false, string tag = "", string category = "");
-		Task<BlogViewModels> GetBlogDetails(int id);
+		Task<blogarticle> GetBlogDetails(int id);
+		Task<PageModel<blogarticle>> GetMapList(Expression<Func<blogarticle, bool>> whereExpression, int intPageIndex = 1, int intPageSize = 20, string strOrderByFileds = null);
+		Task<PageModel<blogarticle>> QueryMuchTable(Expression<Func<blogarticle, bool>> whereExpression, int intPageIndex = 1, int intPageSize = 20, string strOrderByFileds = null);
+
 	}
 }

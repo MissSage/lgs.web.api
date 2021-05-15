@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using lgs.web.api.Common.Helper;
+﻿using lgs.web.api.Common.Helper;
 using lgs.web.api.IServices;
 using lgs.web.api.Model;
 using lgs.web.api.Model.Models;
-using lgs.web.api.Model.ViewModels;
 using lgs.web.api.SwaggerHelper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StackExchange.Profiling;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using static lgs.web.api.Extensions.CustomApiVersion;
 
 namespace lgs.web.api.Controllers
 {
-    /// <summary>
-    /// 博客管理
-    /// </summary>
-    [Produces("application/json")]
+	/// <summary>
+	/// 博客管理
+	/// </summary>
+	[Produces("application/json")]
     [Route("api/Blog")]
     public class BlogController : Controller
     {
@@ -97,9 +96,9 @@ namespace lgs.web.api.Controllers
         /// <returns></returns>
         [HttpGet("{id}")]
         [Authorize(Policy = "Scope_BlogModule_Policy")]
-        public async Task<MessageModel<BlogViewModels>> Get(int id)
+        public async Task<MessageModel<blogarticle>> Get(int id)
         {
-            return new MessageModel<BlogViewModels>()
+            return new MessageModel<blogarticle>()
             {
                 msg = "获取成功",
                 success = true,
@@ -115,10 +114,10 @@ namespace lgs.web.api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("DetailNuxtNoPer")]
-        public async Task<MessageModel<BlogViewModels>> DetailNuxtNoPer(int id)
+        public async Task<MessageModel<blogarticle>> DetailNuxtNoPer(int id)
         {
             _logger.LogInformation("xxxxxxxxxxxxxxxxxxx");
-            return new MessageModel<BlogViewModels>()
+            return new MessageModel<blogarticle>()
             {
                 msg = "获取成功",
                 success = true,

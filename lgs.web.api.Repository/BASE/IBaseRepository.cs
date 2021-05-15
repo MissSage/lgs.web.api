@@ -54,5 +54,5 @@ namespace lgs.web.api.IRepository.Base
             Expression<Func<T, T2, T3, object[]>> joinExpression,
             Expression<Func<T, T2, T3, TResult>> selectExpression,
             Expression<Func<T, T2, T3, bool>> whereLambda = null) where T : class, new();
-    }
+	}
 }

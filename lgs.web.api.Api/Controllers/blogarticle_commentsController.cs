@@ -2,8 +2,6 @@
 using lgs.web.api.IServices;
 using lgs.web.api.Model;
 using lgs.web.api.Model.Models;
-using lgs.web.api.Model.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq.Expressions;
@@ -11,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace lgs.web.api.Api.Controllers
 {
-    [Produces("application/json")]
+	[Produces("application/json")]
     [Route("api/blogarticle_comments")]
     public class blogarticle_commentsController : ControllerBase
     {
