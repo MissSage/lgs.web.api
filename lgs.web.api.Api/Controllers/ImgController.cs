@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Blog.Core.Model.ViewModels;
+using lgs.web.api.Common.HttpContextUser;
 using lgs.web.api.Model;
+using lgs.web.api.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,6 +21,11 @@ namespace lgs.web.api.Controllers
     [Authorize]
     public class ImgController : Controller
     {
+        private readonly IUser _user;
+        public ImgController(IUser user)
+        {
+            _user = user;
+        }
         // GET: api/Download
         /// <summary>
         /// 下载图片（支持中文字符）
@@ -143,7 +149,8 @@ namespace lgs.web.api.Controllers
         {
             var data = new MessageModel<List<ImgViewModel>>();
             string path = string.Empty;
-            string foldername = "images";
+            string userPath = _user == null ? "" : "\\" + _user.ID;
+            string foldername = "images"+ userPath;
             // 获取附带的数据
             IFormFileCollection files = null;
 

@@ -55,7 +55,7 @@ namespace lgs.web.api.Repository
 					it.Author = author.FirstOrDefault(v => v.uID == it.bsubmitter);
 				})
 				.Where(whereExpression)
-				.OrderByIF(true, "bCreateTime desc")
+				.OrderByIF(true, strOrderByFileds)
 				.ToPageListAsync(intPageIndex, intPageSize, totalCount);
 			return new PageModel<blogarticle>() { dataCount = totalCount, pageCount = pageCount, page = intPageIndex, PageSize = intPageSize, data = list };
 		}

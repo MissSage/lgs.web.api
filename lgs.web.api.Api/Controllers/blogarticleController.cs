@@ -63,7 +63,7 @@ namespace lgs.web.api.Api.Controllers
                 where = a => a.btitle.Contains(key) || a.digest.Contains(key) || a.bcontent.Contains(key);
 
             }
-            var bloglist = await _blogarticleServices.QueryMuchTable(where,page, intPageSize,null);
+            var bloglist = await _blogarticleServices.QueryMuchTable(where,page, intPageSize,"bCreateTime desc");
             return new MessageModel<PageModel<blogarticle>>()
             {
                 msg = "获取成功",
@@ -77,7 +77,7 @@ namespace lgs.web.api.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        [Authorize]
+        //[Authorize]
         //[Authorize(Policy = "Scope_BlogModule_Policy")]
         public async Task<MessageModel<blogarticle>> Get(int id = 0)
         {

@@ -1357,6 +1357,11 @@
             
             </summary>
         </member>
+        <member name="P:lgs.web.api.Model.ViewModels.ImgViewModel.VirPath">
+            <summary>
+            虚拟路径
+            </summary>
+        </member>
         <member name="T:lgs.web.api.Model.ViewModels.ServerViewModel">
             <summary>
             服务器VM
@@ -1440,11 +1445,6 @@
         <member name="P:lgs.web.api.Model.ViewModels.TopgbViewModels.btitle">
             <summary>博客标题
             
-            </summary>
-        </member>
-        <member name="P:Blog.Core.Model.ViewModels.ImgViewModel.VirPath">
-            <summary>
-            虚拟路径
             </summary>
         </member>
     </members>

@@ -115,123 +115,123 @@ namespace lgs.web.api.Model.Seed
                     //#endregion
 
 
-                    #region Modules
-                    if (!await myContext.Db.Queryable<Modules>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<Modules>().InsertRange(JsonHelper.ParseFormByJson<List<Modules>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "Modules"), Encoding.UTF8)));
-                        Console.WriteLine("Table:Modules created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:Modules already exists...");
-                    }
-                    #endregion
+                    //#region Modules
+                    //if (!await myContext.Db.Queryable<Modules>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<Modules>().InsertRange(JsonHelper.ParseFormByJson<List<Modules>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "Modules"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:Modules created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:Modules already exists...");
+                    //}
+                    //#endregion
 
 
-                    #region Permission
-                    if (!await myContext.Db.Queryable<Permission>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<Permission>().InsertRange(JsonHelper.ParseFormByJson<List<Permission>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "Permission"), Encoding.UTF8)));
-                        Console.WriteLine("Table:Permission created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:Permission already exists...");
-                    }
-                    #endregion
+                    //#region Permission
+                    //if (!await myContext.Db.Queryable<Permission>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<Permission>().InsertRange(JsonHelper.ParseFormByJson<List<Permission>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "Permission"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:Permission created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:Permission already exists...");
+                    //}
+                    //#endregion
 
 
-                    #region Role
-                    if (!await myContext.Db.Queryable<Role>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<Role>().InsertRange(JsonHelper.ParseFormByJson<List<Role>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "Role"), Encoding.UTF8)));
-                        Console.WriteLine("Table:Role created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:Role already exists...");
-                    }
-                    #endregion
+                    //#region Role
+                    //if (!await myContext.Db.Queryable<Role>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<Role>().InsertRange(JsonHelper.ParseFormByJson<List<Role>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "Role"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:Role created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:Role already exists...");
+                    //}
+                    //#endregion
 
 
-                    #region RoleModulePermission
-                    if (!await myContext.Db.Queryable<RoleModulePermission>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<RoleModulePermission>().InsertRange(JsonHelper.ParseFormByJson<List<RoleModulePermission>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "RoleModulePermission"), Encoding.UTF8)));
-                        Console.WriteLine("Table:RoleModulePermission created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:RoleModulePermission already exists...");
-                    }
-                    #endregion
+                    //#region RoleModulePermission
+                    //if (!await myContext.Db.Queryable<RoleModulePermission>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<RoleModulePermission>().InsertRange(JsonHelper.ParseFormByJson<List<RoleModulePermission>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "RoleModulePermission"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:RoleModulePermission created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:RoleModulePermission already exists...");
+                    //}
+                    //#endregion
 
 
-                    #region Topic
-                    if (!await myContext.Db.Queryable<Topic>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<Topic>().InsertRange(JsonHelper.ParseFormByJson<List<Topic>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "Topic"), Encoding.UTF8)));
-                        Console.WriteLine("Table:Topic created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:Topic already exists...");
-                    }
-                    #endregion
+                    //#region Topic
+                    //if (!await myContext.Db.Queryable<Topic>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<Topic>().InsertRange(JsonHelper.ParseFormByJson<List<Topic>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "Topic"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:Topic created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:Topic already exists...");
+                    //}
+                    //#endregion
 
 
-                    #region TopicDetail
-                    if (!await myContext.Db.Queryable<TopicDetail>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<TopicDetail>().InsertRange(JsonHelper.ParseFormByJson<List<TopicDetail>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "TopicDetail"), Encoding.UTF8)));
-                        Console.WriteLine("Table:TopicDetail created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:TopicDetail already exists...");
-                    }
-                    #endregion
+                    //#region TopicDetail
+                    //if (!await myContext.Db.Queryable<TopicDetail>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<TopicDetail>().InsertRange(JsonHelper.ParseFormByJson<List<TopicDetail>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "TopicDetail"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:TopicDetail created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:TopicDetail already exists...");
+                    //}
+                    //#endregion
 
 
-                    #region UserRole
-                    if (!await myContext.Db.Queryable<UserRole>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<UserRole>().InsertRange(JsonHelper.ParseFormByJson<List<UserRole>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "UserRole"), Encoding.UTF8)));
-                        Console.WriteLine("Table:UserRole created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:UserRole already exists...");
-                    }
-                    #endregion
+                    //#region UserRole
+                    //if (!await myContext.Db.Queryable<UserRole>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<UserRole>().InsertRange(JsonHelper.ParseFormByJson<List<UserRole>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "UserRole"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:UserRole created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:UserRole already exists...");
+                    //}
+                    //#endregion
 
 
-                    #region sysUserInfo
-                    if (!await myContext.Db.Queryable<sysUserInfo>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<sysUserInfo>().InsertRange(JsonHelper.ParseFormByJson<List<sysUserInfo>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "sysUserInfo"), Encoding.UTF8)));
-                        Console.WriteLine("Table:sysUserInfo created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:sysUserInfo already exists...");
-                    }
-                    #endregion
+                    //#region sysUserInfo
+                    //if (!await myContext.Db.Queryable<sysUserInfo>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<sysUserInfo>().InsertRange(JsonHelper.ParseFormByJson<List<sysUserInfo>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "sysUserInfo"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:sysUserInfo created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:sysUserInfo already exists...");
+                    //}
+                    //#endregion
 
 
-                    #region TasksQz
-                    if (!await myContext.Db.Queryable<TasksQz>().AnyAsync())
-                    {
-                        myContext.GetEntityDB<TasksQz>().InsertRange(JsonHelper.ParseFormByJson<List<TasksQz>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "TasksQz"), Encoding.UTF8)));
-                        Console.WriteLine("Table:TasksQz created success!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table:TasksQz already exists...");
-                    }
-                    #endregion
+                    //#region TasksQz
+                    //if (!await myContext.Db.Queryable<TasksQz>().AnyAsync())
+                    //{
+                    //    myContext.GetEntityDB<TasksQz>().InsertRange(JsonHelper.ParseFormByJson<List<TasksQz>>(FileHelper.ReadFile(string.Format(SeedDataFolder, "TasksQz"), Encoding.UTF8)));
+                    //    Console.WriteLine("Table:TasksQz created success!");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Table:TasksQz already exists...");
+                    //}
+                    //#endregion
 
-                    ConsoleHelper.WriteSuccessLine($"Done seeding database!");
+                    //ConsoleHelper.WriteSuccessLine($"Done seeding database!");
                 }
 
                 Console.WriteLine();
@@ -239,7 +239,8 @@ namespace lgs.web.api.Model.Seed
             }
             catch (Exception ex)
             {
-                throw new Exception("1、如果使用的是Mysql，生成的数据库字段字符集可能不是utf8的，手动修改下，或者尝试方案：删掉数据库，在连接字符串后加上CharSet=UTF8mb4，重新生成数据库. \n 2、其他错误：" + ex.Message);
+                //throw new Exception("1、如果使用的是Mysql，生成的数据库字段字符集可能不是utf8的，手动修改下，或者尝试方案：删掉数据库，在连接字符串后加上CharSet=UTF8mb4，重新生成数据库. \n 2、其他错误：" + ex.Message);
+                throw new Exception(ex.Message);
             }
         }
     }

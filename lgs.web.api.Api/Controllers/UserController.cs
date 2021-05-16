@@ -20,7 +20,7 @@ namespace lgs.web.api.Controllers
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(Permissions.Name)]
+    //[Authorize(Permissions.Name)]
     public class UserController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -217,7 +217,27 @@ namespace lgs.web.api.Controllers
 
             return data;
         }
-
+        /// <summary>
+        /// 编辑用户
+        /// </summary>
+        /// <param name="sysUserInfo"></param>
+        /// <returns></returns>
+        // PUT: api/User/5
+        [HttpPost]
+        [Authorize]
+        public async Task<MessageModel<string>> Edit(sysUserInfo sysUserInfo)
+        {
+            var data = new MessageModel<string>();
+            var userDetail = await _sysUserInfoServices.QueryById(sysUserInfo.uID);
+            userDetail.uPhoto = sysUserInfo.uPhoto;
+            data.success = await _sysUserInfoServices.Update(userDetail);
+            if (data.success)
+            {
+                data.msg = "编辑成功";
+                data.response = "";
+            }
+            return data;
+        }
         /// <summary>
         /// 删除用户
         /// </summary>
