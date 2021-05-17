@@ -50,7 +50,7 @@ namespace lgs.web.api.Repository
 					var allTags = cache.GetListByPrimaryKeys<blogarticle_tags>(v => v.Id);
 					it.Tags = allTags.Where(v => v.bBlogID == it.Id).ToList();
 					var allPrefers = cache.GetListByPrimaryKeys<blogarticle_prefers>(v => v.Id);
-					it.Prefers = allPrefers.Where(v => v.pBlogID == it.Id).ToList();
+					it.Prefers = allPrefers.Where(v => v.pBlogID == it.Id).Take(5).ToList();
 					var author = cache.GetListByPrimaryKeys<sysUserInfo>(v => v.bsubmitter);
 					it.Author = author.FirstOrDefault(v => v.uID == it.bsubmitter);
 				})

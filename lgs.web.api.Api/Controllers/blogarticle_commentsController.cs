@@ -75,24 +75,11 @@ namespace lgs.web.api.Api.Controllers
         public async Task<MessageModel<blogarticle_comments>> Post(blogarticle_comments request)
         {
             request.CreateTime = DateTime.Now;
-            if (_user != null)
-            {
-                request.CreatorID = _user.ID;
-                request.IsDeleted = false;
-
-            }
-            else
-            {
-                return new MessageModel<blogarticle_comments>()
-                {
-                    msg = "添加失败",
-                    success = false,
-                    response = null
-                };
-            }
+            request.IsDeleted = false;
             var id = await _blogarticle_commentsServices.Add(request);
             var item = await _blogarticle_commentsServices.QueryById(id);
             item.Author = _sysUserInfoServices.QueryById(item.CreatorID).Result;
+            item.CallbackUser = _sysUserInfoServices.QueryById(item.CallBackTo).Result;
             Expression<Func<blogarticle_comments, bool>> whereExpression1 = a => a.Id > 0 && a.ParentID == item.Id;
             item.Children = _blogarticle_commentsServices.Query(whereExpression1, 20, " CreateTime desc ").Result;
             item.Children.ForEach(obj =>
