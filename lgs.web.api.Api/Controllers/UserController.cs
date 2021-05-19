@@ -149,12 +149,19 @@ namespace lgs.web.api.Controllers
             sysUserInfo.uLoginPWD = MD5Helper.MD5Encrypt32(sysUserInfo.uLoginPWD);
             sysUserInfo.uRemark = _user.Name;
 
-            var id = await _sysUserInfoServices.Add(sysUserInfo);
-            data.success = id > 0;
-            if (data.success)
-            {
+            var sysuser = await _sysUserInfoServices.Query(a => a.uLoginName == sysUserInfo.uLoginName);
+			if (sysuser .Count>0)
+			{
+                data.success = false;
+                data.msg = "用户已存在";
+			}
+			else
+			{
+                var id = await _sysUserInfoServices.Add(sysUserInfo);
+                data.success = id > 0;
                 data.response = id.ObjToString();
                 data.msg = "添加成功";
+
             }
 
             return data;

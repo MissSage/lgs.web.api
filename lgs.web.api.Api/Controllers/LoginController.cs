@@ -96,7 +96,7 @@ namespace lgs.web.api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetTokenNuxt")]
-        public MessageModel<string> GetJwtStrForNuxt(string name, string pass)
+        public async Task<MessageModel<string>> GetJwtStrForNuxt(string name, string pass)
         {
             string jwtStr = string.Empty;
             bool suc = false;
@@ -115,12 +115,29 @@ namespace lgs.web.api.Controllers
             }
             else
             {
-                jwtStr = "login fail!!!";
+                var role = await _sysUserInfoServices.GetUserRoleNameStr(name, MD5Helper.MD5Encrypt32(pass));
+                var user = await _sysUserInfoServices.Query(d => d.uLoginName == name && d.uLoginPWD == MD5Helper.MD5Encrypt32(pass) && d.tdIsDelete == false);
+
+                if (role != null)
+                {
+					if (user.Count > 0)
+					{
+                        TokenModelJwt tokenModel = new TokenModelJwt { Uid = user.FirstOrDefault().uID, Role = role };
+                        jwtStr = JwtHelper.IssueJwt(tokenModel);
+                        suc = true;
+					}
+					else
+					{
+                        jwtStr = "not find user";
+                    }
+
+                    
+                }
+                else
+                {
+                    jwtStr = "login fail!!!";
+                }
             }
-            var result = new
-            {
-                data = new { success = suc, token = jwtStr }
-            };
 
             return new MessageModel<string>()
             {
