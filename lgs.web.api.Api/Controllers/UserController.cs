@@ -235,9 +235,10 @@ namespace lgs.web.api.Controllers
         public async Task<MessageModel<string>> Edit(sysUserInfo sysUserInfo)
         {
             var data = new MessageModel<string>();
-            var userDetail = await _sysUserInfoServices.QueryById(sysUserInfo.uID);
-            userDetail.uPhoto = sysUserInfo.uPhoto;
-            data.success = await _sysUserInfoServices.Update(userDetail);
+            //var userDetail = await _sysUserInfoServices.QueryById(sysUserInfo.uID);
+            //userDetail.uPhoto = sysUserInfo.uPhoto;
+            //userDetail.uProfileImg = sysUserInfo.uProfileImg;
+            data.success = await _sysUserInfoServices.Update(sysUserInfo);
             if (data.success)
             {
                 data.msg = "编辑成功";
