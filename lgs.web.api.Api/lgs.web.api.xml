@@ -126,47 +126,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:lgs.web.api.Controllers.DbFirstController.#ctor(SqlSugar.ISqlSugarClient,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            构造函数
-            </summary>
-        </member>
-        <member name="M:lgs.web.api.Controllers.DbFirstController.GetFrameFiles">
-            <summary>
-            获取 整体框架 文件
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.DbFirstController.GetFrameFilesByTableNames(System.String[],System.String)">
-            <summary>
-            根据数据库表名 生成整体框架
-            仅针对通过CodeFirst生成表的情况
-            </summary>
-            <param name="ConnID">数据库链接名称</param>
-            <param name="tableNames">需要生成的表名</param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.DbFirstController.GetAllFrameFilesByTableNames(System.String[],System.String)">
-            <summary>
-            DbFrist 根据数据库表名 生成整体框架,包含Model层
-            </summary>
-            <param name="ConnID">数据库链接名称</param>
-            <param name="tableNames">需要生成的表名</param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.MigrateController.DataMigrateFromOld2New">
-            <summary>
-            获取权限部分Map数据（从库）
-            迁移到新库（主库）
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.MigrateController.SaveData2TsvAsync">
-            <summary>
-            权限数据库导出tsv
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:lgs.web.api.Controllers.HealthCheckController">
             <summary>
             健康检查
@@ -262,40 +221,6 @@
             <param name="password"></param>
             <returns></returns>
         </member>
-        <member name="T:lgs.web.api.Controllers.ModuleController">
-            <summary>
-            接口管理
-            </summary>
-        </member>
-        <member name="M:lgs.web.api.Controllers.ModuleController.Get(System.Int32,System.String)">
-            <summary>
-            获取全部接口api
-            </summary>
-            <param name="page"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.ModuleController.Post(lgs.web.api.Model.Models.Modules)">
-            <summary>
-            添加一条接口信息
-            </summary>
-            <param name="module"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.ModuleController.Put(lgs.web.api.Model.Models.Modules)">
-            <summary>
-            更新接口信息
-            </summary>
-            <param name="module"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.ModuleController.Delete(System.Int32)">
-            <summary>
-            删除一条接口
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="M:lgs.web.api.Controllers.MonitorController.Server">
             <summary>
             服务器配置信息
@@ -306,123 +231,6 @@
             <summary>
             SignalR send data
             </summary>
-            <returns></returns>
-        </member>
-        <member name="T:lgs.web.api.Controllers.PermissionController">
-            <summary>
-            菜单管理
-            </summary>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.#ctor(lgs.web.api.IServices.IPermissionServices,lgs.web.api.IServices.IModuleServices,lgs.web.api.IServices.IRoleModulePermissionServices,lgs.web.api.IServices.IUserRoleServices,Microsoft.AspNetCore.Http.IHttpContextAccessor,lgs.web.api.Common.HttpContextUser.IUser,lgs.web.api.AuthHelper.PermissionRequirement)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="permissionServices"></param>
-            <param name="moduleServices"></param>
-            <param name="roleModulePermissionServices"></param>
-            <param name="userRoleServices"></param>
-            <param name="httpContext"></param>
-            <param name="user"></param>
-            <param name="requirement"></param>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.Get(System.Int32,System.String)">
-            <summary>
-            获取菜单
-            </summary>
-            <param name="page"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.GetTreeTable(System.Int32,System.String)">
-            <summary>
-            查询树形 Table
-            </summary>
-            <param name="f">父节点</param>
-            <param name="key">关键字</param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.Post(lgs.web.api.Model.Models.Permission)">
-            <summary>
-            添加一个菜单
-            </summary>
-            <param name="permission"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.Assign(lgs.web.api.Controllers.AssignView)">
-            <summary>
-            保存菜单权限分配
-            </summary>
-            <param name="assignView"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.GetPermissionTree(System.Int32,System.Boolean)">
-            <summary>
-            获取菜单树
-            </summary>
-            <param name="pid"></param>
-            <param name="needbtn"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.GetNavigationBar(System.Int32)">
-            <summary>
-            获取路由树
-            </summary>
-            <param name="uid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.GetPermissionIdByRoleId(System.Int32)">
-            <summary>
-            通过角色获取菜单【无权限】
-            </summary>
-            <param name="rid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.Put(lgs.web.api.Model.Models.Permission)">
-            <summary>
-            更新菜单
-            </summary>
-            <param name="permission"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.PermissionController.Delete(System.Int32)">
-            <summary>
-            删除菜单
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="T:lgs.web.api.Controllers.RoleController">
-            <summary>
-            角色管理
-            </summary>
-        </member>
-        <member name="M:lgs.web.api.Controllers.RoleController.Get(System.Int32,System.String)">
-            <summary>
-            获取全部角色
-            </summary>
-            <param name="page"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.RoleController.Post(lgs.web.api.Model.Models.Role)">
-            <summary>
-            添加角色
-            </summary>
-            <param name="role"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.RoleController.Put(lgs.web.api.Model.Models.Role)">
-            <summary>
-            更新角色
-            </summary>
-            <param name="role"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.RoleController.Delete(System.Int32)">
-            <summary>
-            删除角色
-            </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:lgs.web.api.Controllers.TasksQzController.Get(System.Int32,System.String)">
@@ -543,102 +351,6 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="T:lgs.web.api.Controllers.UserController">
-            <summary>
-            用户管理
-            </summary>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserController.#ctor(lgs.web.api.IRepository.UnitOfWork.IUnitOfWork,lgs.web.api.IServices.ISysUserInfoServices,lgs.web.api.IServices.IUserRoleServices,lgs.web.api.IServices.IRoleServices,lgs.web.api.Common.HttpContextUser.IUser,Microsoft.Extensions.Logging.ILogger{lgs.web.api.Controllers.UserController})">
-            <summary>
-            构造函数
-            </summary>
-            <param name="unitOfWork"></param>
-            <param name="sysUserInfoServices"></param>
-            <param name="userRoleServices"></param>
-            <param name="roleServices"></param>
-            <param name="user"></param>
-            <param name="logger"></param>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserController.Get(System.Int32,System.String)">
-            <summary>
-            获取全部用户
-            </summary>
-            <param name="page"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserController.GetInfoByToken(System.String)">
-            <summary>
-            获取用户详情根据token
-            【无权限】
-            </summary>
-            <param name="token">令牌</param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserController.Post(lgs.web.api.Model.Models.sysUserInfo)">
-            <summary>
-            添加一个用户
-            </summary>
-            <param name="sysUserInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserController.Put(lgs.web.api.Model.Models.sysUserInfo)">
-            <summary>
-            更新用户与角色
-            </summary>
-            <param name="sysUserInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserController.Edit(lgs.web.api.Model.Models.sysUserInfo)">
-            <summary>
-            编辑用户
-            </summary>
-            <param name="sysUserInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserController.Delete(System.Int32)">
-            <summary>
-            删除用户
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="T:lgs.web.api.Controllers.UserRoleController">
-            <summary>
-            用户角色关系
-            </summary>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserRoleController.#ctor(lgs.web.api.IServices.ISysUserInfoServices,lgs.web.api.IServices.IUserRoleServices,lgs.web.api.IServices.IRoleServices)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="sysUserInfoServices"></param>
-            <param name="userRoleServices"></param>
-            <param name="roleServices"></param>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserRoleController.AddUser(System.String,System.String)">
-            <summary>
-            新建用户
-            </summary>
-            <param name="loginName"></param>
-            <param name="loginPwd"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserRoleController.AddRole(System.String)">
-            <summary>
-            新建Role
-            </summary>
-            <param name="roleName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:lgs.web.api.Controllers.UserRoleController.AddUserRole(System.Int32,System.Int32)">
-            <summary>
-            新建用户角色关系
-            </summary>
-            <param name="uid"></param>
-            <param name="rid"></param>
-            <returns></returns>
-        </member>
         <member name="T:lgs.web.api.Controllers.ValuesController">
             <summary>
             Values控制器
@@ -747,6 +459,294 @@
             Delete方法
             </summary>
             <param name="id"></param>
+        </member>
+        <member name="M:lgs.web.api.Controllers.DbFirstController.#ctor(SqlSugar.ISqlSugarClient,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:lgs.web.api.Controllers.DbFirstController.GetFrameFiles">
+            <summary>
+            获取 整体框架 文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.DbFirstController.GetFrameFilesByTableNames(System.String[],System.String)">
+            <summary>
+            根据数据库表名 生成整体框架
+            仅针对通过CodeFirst生成表的情况
+            </summary>
+            <param name="ConnID">数据库链接名称</param>
+            <param name="tableNames">需要生成的表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.DbFirstController.GetAllFrameFilesByTableNames(System.String[],System.String)">
+            <summary>
+            DbFrist 根据数据库表名 生成整体框架,包含Model层
+            </summary>
+            <param name="ConnID">数据库链接名称</param>
+            <param name="tableNames">需要生成的表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.MigrateController.DataMigrateFromOld2New">
+            <summary>
+            获取权限部分Map数据（从库）
+            迁移到新库（主库）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.MigrateController.SaveData2TsvAsync">
+            <summary>
+            权限数据库导出tsv
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:lgs.web.api.Controllers.ModuleController">
+            <summary>
+            接口管理
+            </summary>
+        </member>
+        <member name="M:lgs.web.api.Controllers.ModuleController.Get(System.Int32,System.String)">
+            <summary>
+            获取全部接口api
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.ModuleController.Post(lgs.web.api.Model.Models.Modules)">
+            <summary>
+            添加一条接口信息
+            </summary>
+            <param name="module"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.ModuleController.Put(lgs.web.api.Model.Models.Modules)">
+            <summary>
+            更新接口信息
+            </summary>
+            <param name="module"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.ModuleController.Delete(System.Int32)">
+            <summary>
+            删除一条接口
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:lgs.web.api.Controllers.PermissionController">
+            <summary>
+            菜单管理
+            </summary>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.#ctor(lgs.web.api.IServices.IPermissionServices,lgs.web.api.IServices.IModuleServices,lgs.web.api.IServices.IRoleModulePermissionServices,lgs.web.api.IServices.IUserRoleServices,Microsoft.AspNetCore.Http.IHttpContextAccessor,lgs.web.api.Common.HttpContextUser.IUser,lgs.web.api.AuthHelper.PermissionRequirement)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="permissionServices"></param>
+            <param name="moduleServices"></param>
+            <param name="roleModulePermissionServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="httpContext"></param>
+            <param name="user"></param>
+            <param name="requirement"></param>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.Get(System.Int32,System.String)">
+            <summary>
+            获取菜单
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.GetTreeTable(System.Int32,System.String)">
+            <summary>
+            查询树形 Table
+            </summary>
+            <param name="f">父节点</param>
+            <param name="key">关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.Post(lgs.web.api.Model.Models.Permission)">
+            <summary>
+            添加一个菜单
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.Assign(lgs.web.api.Controllers.AssignView)">
+            <summary>
+            保存菜单权限分配
+            </summary>
+            <param name="assignView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.GetPermissionTree(System.Int32,System.Boolean)">
+            <summary>
+            获取菜单树
+            </summary>
+            <param name="pid"></param>
+            <param name="needbtn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.GetNavigationBar(System.Int32)">
+            <summary>
+            获取路由树
+            </summary>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.GetPermissionIdByRoleId(System.Int32)">
+            <summary>
+            通过角色获取菜单【无权限】
+            </summary>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.Put(lgs.web.api.Model.Models.Permission)">
+            <summary>
+            更新菜单
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.PermissionController.Delete(System.Int32)">
+            <summary>
+            删除菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:lgs.web.api.Controllers.RoleController">
+            <summary>
+            角色管理
+            </summary>
+        </member>
+        <member name="M:lgs.web.api.Controllers.RoleController.Get(System.Int32,System.String)">
+            <summary>
+            获取全部角色
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.RoleController.Post(lgs.web.api.Model.Models.Role)">
+            <summary>
+            添加角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.RoleController.Put(lgs.web.api.Model.Models.Role)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.RoleController.Delete(System.Int32)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:lgs.web.api.Controllers.UserController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserController.#ctor(lgs.web.api.IRepository.UnitOfWork.IUnitOfWork,lgs.web.api.IServices.ISysUserInfoServices,lgs.web.api.IServices.IUserRoleServices,lgs.web.api.IServices.IRoleServices,lgs.web.api.Common.HttpContextUser.IUser,Microsoft.Extensions.Logging.ILogger{lgs.web.api.Controllers.UserController})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="unitOfWork"></param>
+            <param name="sysUserInfoServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="roleServices"></param>
+            <param name="user"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserController.Get(System.Int32,System.String)">
+            <summary>
+            获取全部用户
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserController.GetInfoByToken(System.String)">
+            <summary>
+            获取用户详情根据token
+            【无权限】
+            </summary>
+            <param name="token">令牌</param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserController.Post(lgs.web.api.Model.Models.sysUserInfo)">
+            <summary>
+            添加一个用户
+            </summary>
+            <param name="sysUserInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserController.Put(lgs.web.api.Model.Models.sysUserInfo)">
+            <summary>
+            更新用户与角色
+            </summary>
+            <param name="sysUserInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserController.Edit(lgs.web.api.Model.Models.sysUserInfo)">
+            <summary>
+            编辑用户
+            </summary>
+            <param name="sysUserInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:lgs.web.api.Controllers.UserRoleController">
+            <summary>
+            用户角色关系
+            </summary>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserRoleController.#ctor(lgs.web.api.IServices.ISysUserInfoServices,lgs.web.api.IServices.IUserRoleServices,lgs.web.api.IServices.IRoleServices)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sysUserInfoServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="roleServices"></param>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserRoleController.AddUser(System.String,System.String)">
+            <summary>
+            新建用户
+            </summary>
+            <param name="loginName"></param>
+            <param name="loginPwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserRoleController.AddRole(System.String)">
+            <summary>
+            新建Role
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:lgs.web.api.Controllers.UserRoleController.AddUserRole(System.Int32,System.Int32)">
+            <summary>
+            新建用户角色关系
+            </summary>
+            <param name="uid"></param>
+            <param name="rid"></param>
+            <returns></returns>
         </member>
         <member name="T:lgs.web.api.SwaggerHelper.CustomRouteAttribute">
             <summary>
